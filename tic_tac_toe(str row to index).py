@@ -26,7 +26,14 @@ col_dict={
   "B":1,
   "C":2
 }
-def get_row_col(S):
-  return ( int(S[1])-1 , col_dict[S[0]] )
-  
-print(get_row_col("C1"))
+def get_row_col(s):
+    return (int(s[1]) - 1, col_dict.get(s[0], -1))
+
+cell = input("Enter a cell identifier (e.g., A3) to get the corresponding (row, column) coordinates: ").upper()
+
+coordinates = get_row_col(cell)
+
+if coordinates[1] == -1:
+    print("Invalid input. Please enter a valid cell identifier.")
+else:
+    print(f"The coordinates for {cell} are: {coordinates}")
